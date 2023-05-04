@@ -8,6 +8,10 @@ class CrosshairOverlay:
     def __init__(self):
         pygame.init()
 
+        pygame.display.set_caption('Crosshair')
+        icon = pygame.image.load('img\crosshairIcon.png')
+        pygame.display.set_icon(icon)
+
         self.width = 200
         self.height = 200
         self.screen = pygame.display.set_mode((self.width, self.height))
@@ -51,17 +55,16 @@ class CrosshairOverlay:
 
 
     def run(self):
+        running = True
         fuchsia = (255, 0, 128)
-        while True:
+        while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
-                    return
+                    running = False
                 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_b:
-                        pygame.quit()
-                        return
+                        running = False
                         
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_n:
