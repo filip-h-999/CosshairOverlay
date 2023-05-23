@@ -19,7 +19,7 @@ class CrosshairOverlay:
 
         self.crosshair_color = ('#00FFF4')
         self.crosshair_thickness = 2
-        self.crosshair_size = 5
+        self.crosshair_size = 2
         self.crosshair_pos = (self.width // 2, self.height // 2)
 
 
@@ -28,8 +28,12 @@ class CrosshairOverlay:
         size = self.crosshair_size
         thickness = self.crosshair_thickness
         color = self.crosshair_color
-        pygame.draw.line(self.screen, color, (pos[0] - size, pos[1]), (pos[0] + size, pos[1]), thickness)
-        pygame.draw.line(self.screen, color, (pos[0], pos[1] - size), (pos[0], pos[1] + size), thickness)
+        pygame.draw.line(self.screen, color, (pos[0] - 5 - size, pos[1]), (pos[0] - 5 + size, pos[1]), thickness)
+        pygame.draw.line(self.screen, color, (pos[0] + 5 - size, pos[1]), (pos[0] + 5 + size, pos[1]), thickness)
+        pygame.draw.line(self.screen, color, (pos[0], pos[1] + 5 - size), (pos[0], pos[1] + 5 + size), thickness)
+        pygame.draw.line(self.screen, color, (pos[0], pos[1] - 5 - size), (pos[0], pos[1] - 5 + size), thickness)
+
+        # pygame.draw.line(self.screen, color, (pos[0], pos[1] - size), (pos[0], pos[1] + size), thickness)
 
 
     def transparent(self, color):
